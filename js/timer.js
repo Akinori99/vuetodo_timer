@@ -1,6 +1,7 @@
 (()=>{
 'use strict';
 
+// 変数定義
 let timer = document.getElementById('timer');
 let min1 = document.getElementById('min1');
 let sec1 = document.getElementById('sec1');
@@ -15,6 +16,7 @@ let timeToCountDown = 0 ;
 let timerId;
 let isRunning = false;
 
+// 時間取得・表示
 function updateTimer(t){
   let d = new Date(t);
   let m = d.getMinutes();
@@ -22,9 +24,14 @@ function updateTimer(t){
   m = ('0' + m).slice(-2);
   s = ('0' + s).slice(-2);
   timer.textContent = m + ':' + s;
-  document.title = `残り  ${m + ':' + s}`;
+  if (timeLeft > 0) {
+    document.title = `残り  ${m + ':' + s}`;
+  }else if(timeLeft === 0){
+    document.title = '終了！';
+  }
 }
 
+// カウントダウン
 function countDown(){
   timerId = setTimeout(()=>{
     timeLeft = timeToCountDown - (Date.now() - startTime);
@@ -42,6 +49,7 @@ function countDown(){
   },10);
 }
 
+// スタートボタン
 start.addEventListener('click',()=>{
   if(isRunning === false){
     isRunning = true;
@@ -56,6 +64,7 @@ start.addEventListener('click',()=>{
   }
 });
 
+// ＋1分ボタン
 min1.addEventListener('click',()=>{
   if(isRunning === true){
     return;
@@ -67,6 +76,7 @@ min1.addEventListener('click',()=>{
   updateTimer(timeToCountDown);
 });
 
+// ＋10分ボタン
 min10.addEventListener('click',()=>{
   if(isRunning === true){
     return;
@@ -78,6 +88,7 @@ min10.addEventListener('click',()=>{
   updateTimer(timeToCountDown);
 });
 
+// ＋1秒ボタン
 sec1.addEventListener('click',()=>{
   if(isRunning === true){
     return;
@@ -89,6 +100,7 @@ sec1.addEventListener('click',()=>{
   updateTimer(timeToCountDown);
 });
 
+// ＋10秒ボタン
 sec10.addEventListener('click',()=>{
   if(isRunning === true){
     return;
@@ -100,6 +112,7 @@ sec10.addEventListener('click',()=>{
   updateTimer(timeToCountDown);
 });
 
+// リセットボタン
 reset.addEventListener('click',()=>{
   timeToCountDown = 0 ;
   updateTimer(timeToCountDown);
