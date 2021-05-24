@@ -1,6 +1,7 @@
 (()=>{
 'use strict';
 
+// ローカルストレージ使用
 let STORAGE_KEY = 'todos-vuejs'
 let todoStorage = {
   fetch: function () {
@@ -16,6 +17,7 @@ let todoStorage = {
   }
 }
 
+// Vue
 new Vue({
   el: '#app',
 
