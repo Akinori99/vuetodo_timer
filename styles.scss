@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+// 共通
+* {
+  text-align: center;
+  padding: 0 1%;
+}
+#app {
+  max-width: 640px;
+  height: fit-content;
+  margin: 0 auto;
+}
+
+// ToDoリスト用
+form input {
+  width: 250px;
+  &::placeholder{
+    opacity: .4;
+  }
+}
+label {
+  margin: 30px 20px 10px 0;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba($color: #bbb, $alpha: .1);
+  border-radius: 10px;
+  margin-bottom: 60px;
+}
+thead th {
+  border-bottom: 2px solid #0099e4;
+  color: #0099e4;
+  &.id {
+    width: 50px;
+  }
+  &.state {
+    width: 100px;
+  }
+  &.btn {
+    width: 60px;
+  }
+}
+th,
+th {
+  padding: 0 8px;
+  line-height: 40px;
+}
+tbody tr {
+  border-bottom: 1px solid #ccc;
+  transition: all 0.4s;
+  &.done {
+    background: #f8f8f8;
+    color: #bbb;
+  }
+}
+
+// タイマー用
+.timer {
+  background: rgba($color: #ccc, $alpha: .2);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 30px;
+  #timer {
+    background-color: rgba(179, 175, 175, 0.753);
+    border-radius: 10px;
+    letter-spacing: 2px;
+    line-height: 100px;
+    font-size: 45px;
+    font-weight: bold;
+  }
+  .timer-btn {
+    margin-bottom: 10px;
+    .btn:not(:last-child) {
+      margin-right: 25px;
+    }
+    .set-btn {
+      margin-top: 15px;
+      padding: 20px 30px;
+      border-radius: 50px;
+      font-size: 20px;
+      font-weight: bold;
+      background: #1f6bdb;
+      box-shadow: inset 6px 6px 12px #47afc4, inset -6px -6px 12px #2f6e79;
+    }
+  }
+}
+
+
+// ボタン
+button {
+  border: none;
+  border-radius: 20px;
+  line-height: 24px;
+  padding: 2px 10px;
+  background: #0099e4;
+  color: rgb(243, 243, 243);
+  background: #32a4bb;
+  box-shadow: inset 6px 6px 12px #4997a7, inset -6px -6px 12px #48e4ff;
+}
