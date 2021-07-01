@@ -20,7 +20,7 @@
     el: '#app',
 
     data: {
-      todos: ["ここに追加したタスクが表示されます"],
+      todos: [],
       current: -1,
       options: [
         { value: -1, label: 'すべて' },
