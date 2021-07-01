@@ -1,45 +1,97 @@
 @charset "UTF-8";
 
-// 共通
-* {
-  text-align: center;
-  padding: 0 1%;
-}
-#app {
-  max-width: 640px;
-  height: fit-content;
-  margin: 0 auto;
+// ------変数・関数宣言------
+@mixin btnStyle($bg-color, $bs-color1, $bs-color2) {
+  background: $bg-color;
+  box-shadow: inset 10px 10px 20px $bs-color1, inset -10px -10px 20px $bs-color2;
 }
 
-// ToDoリスト用
+// ------共通------
+body {
+  animation: bgchange 30s ease infinite;
+  @keyframes bgchange {
+    0% {
+      background: #acc7df;
+    }
+    25% {
+      background: #5c7ab8;
+    }
+    50% {
+      background: #2c4c8d;
+    }
+    75% {
+      background: #5c7ab8;
+    }
+    100% {
+      background: #acc7df;
+    }
+  }
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 60px;
+  padding: 0 2%;
+  z-index: 1;
+  background: rgba($color: rgb(0, 0, 0), $alpha: 0.8);
+  .left {
+    display: flex;
+    align-items: center;
+    img {
+      width: 60px;
+      height: 50px;
+    }
+  }
+  .change-btn {
+    @include btnStyle(#14ee00, #139702, #004700);
+    height: 40px;
+    font-weight: bold;
+  }
+}
+.wrapper {
+  text-align: center;
+  max-width: 1000px;
+  padding: 1%;
+  background: rgb(225, 240, 241);
+  border-radius: 20px;
+  margin: 90px 1% 10px;
+}
+
+// ------ToDoリスト用------
 form input {
-  width: 250px;
-  &::placeholder{
-    opacity: .4;
+  width: 200px;
+  &::placeholder {
+    opacity: 0.4;
   }
 }
 label {
-  margin: 30px 20px 10px 0;
+  margin: 25px 20px 15px 0;
 }
 table {
   width: 100%;
   border-collapse: collapse;
-  background: rgba($color: #bbb, $alpha: .1);
-  border-radius: 10px;
-  margin-bottom: 60px;
+  background: rgba($color: #bbb, $alpha: 0.1);
+  margin: 5px 0 60px;
 }
 thead th {
   border-bottom: 2px solid #0099e4;
   color: #0099e4;
   &.id {
-    width: 50px;
+    width: 35px;
   }
   &.state {
-    width: 100px;
+    width: 80px;
   }
   &.btn {
-    width: 60px;
+    width: 30px;
   }
+}
+.task {
+  background: rgba($color: #bbb, $alpha: 0.2);
 }
 th,
 th {
@@ -49,52 +101,57 @@ th {
 tbody tr {
   border-bottom: 1px solid #ccc;
   transition: all 0.4s;
+  .state-btn {
+    @include btnStyle(#32a4bb, #4997a7, #48e4ff);
+  }
   &.done {
-    background: #f8f8f8;
     color: #bbb;
+    .state-btn {
+      @include btnStyle(#12d300, #139702, #038503);
+    }
   }
 }
+.remove {
+  font-weight: bold;
+  @include btnStyle(#fd0000, #ce0000, #9b0101);
+}
 
-// タイマー用
-.timer {
-  background: rgba($color: #ccc, $alpha: .2);
+// ------タイマー用------
+#timer {
+  margin: 0 10%;
+  background-color: rgba(179, 175, 175, 0.7);
   border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 30px;
-  #timer {
-    background-color: rgba(179, 175, 175, 0.753);
-    border-radius: 10px;
-    letter-spacing: 2px;
-    line-height: 100px;
-    font-size: 45px;
+  letter-spacing: 2px;
+  line-height: 100px;
+  font-size: 45px;
+  font-weight: bold;
+}
+.timer-btn {
+  margin-bottom: 10px;
+  .btn:first-child {
+    margin-right: 15px;
+  }
+  .set-btn {
+    margin-top: 15px;
+    padding: 20px 30px;
+    border-radius: 50px;
+    font-size: 20px;
     font-weight: bold;
   }
-  .timer-btn {
-    margin-bottom: 10px;
-    .btn:not(:last-child) {
-      margin-right: 25px;
-    }
-    .set-btn {
-      margin-top: 15px;
-      padding: 20px 30px;
-      border-radius: 50px;
-      font-size: 20px;
-      font-weight: bold;
-      background: #1f6bdb;
-      box-shadow: inset 6px 6px 12px #47afc4, inset -6px -6px 12px #2f6e79;
-    }
+  #start {
+    @include btnStyle(#12d300, #139702, #038503);
+  }
+  #reset {
+    @include btnStyle(#fd0000, #a11616, #940000);
   }
 }
 
-
-// ボタン
+// ------ボタン基礎スタイル------
 button {
   border: none;
   border-radius: 20px;
   line-height: 24px;
   padding: 2px 10px;
-  background: #0099e4;
   color: rgb(243, 243, 243);
-  background: #32a4bb;
-  box-shadow: inset 6px 6px 12px #4997a7, inset -6px -6px 12px #48e4ff;
+  @include btnStyle(#1f6bdb, #47afc4, #2f6e79);
 }

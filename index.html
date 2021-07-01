@@ -1,49 +1,60 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ToDo App（Vue.js）</title>
+  <title>タイマー機能付きToDoリスト</title>
   <script type="module" src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <script type="module" src="https://akinori99.github.io/vuetodo_timer/js/main.js"></script>
-  <script type="module" src="https://akinori99.github.io/vuetodo_timer/js/timer.js"></script>
+  <script type="module" src="/js/main.js"></script>
+  <script type="module" src="/js/timer.js"></script>
+  <link rel="icon" href="/img/todo.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/krishdevdb/reseter.css/css/reseter.min.css">
-  <link rel="stylesheet" href="https://akinori99.github.io/vuetodo_timer/scss/styles.css">
+  <link rel="stylesheet" href="/scss/styles.css">
 </head>
+
 <body>
   <div id="app">
-
-    <!-- ToDoリスト部分 -->
-    <div class="todo">
+    <!-- ------ヘッダー------ -->
+    <header>
+      <div class="left">
+        <img src="/img/todo.png">
+      </div>
+      <button class="change-btn" @click="doChangeMessage">⇋ {{ message }}</button>
+    </header>
+    <!-- ------ToDoリスト部分------ -->
+    <div class="wrapper" v-show="list">
       <h1>ToDoリスト</h1>
       <form class="add-form" @submit.prevent="doAdd">
-        <input type="text" ref="task" placeholder="追加するタスクをここに入力">
+        <input type="text" ref="task" placeholder="タスクをここに入力">
         <button type="submit">追加</button>
       </form>
       <label v-for="label in options">
         <input type="radio" v-model="current" :value="label.value">{{ label.label }}
       </label>
-      （{{ computedTodos.length }} 件を表示）
+      <div>
+        （{{ computedTodos.length }} 件を表示）
+      </div>
       <table>
-        <thead v-pre>
+        <thead>
           <tr>
             <th class="id">ID</th>
             <th class="task">タスク</th>
             <th class="state">状態</th>
-            <th class="btn">削除</th>
+            <th class="btn"></th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="item in computedTodos" :key="item.id" :class="{done:item.state}">
             <th>{{ item.id }}</th>
-            <td>{{ item.task }}</td>
+            <td class="task">{{ item.task }}</td>
             <td class="state">
-              <button @click="doChangeState(item)">
+              <button class="state-btn" @click="doChangeState(item)">
                 {{ labels[item.state] }}
               </button>
             </td>
             <td class="btn">
-              <button @click="doRemove(item)">
+              <button class="remove" @click="doRemove(item)">
                 ✕
               </button>
             </td>
@@ -51,10 +62,9 @@
         </tbody>
       </table>
     </div>
-
-    <!-- タイマー部分 -->
-    <h1>タイマー</h1>
-    <div class="timer">
+    <!-- ------タイマー部分------ -->
+    <div class="wrapper" v-show="timer">
+      <h1>タイマー</h1>
       <div id="timer">00:00</div>
       <p>※上限／59:59</p>
       <div class="timer-btn">
@@ -66,9 +76,9 @@
         <button class="btn" id="sec10">+10秒</button>
       </div>
       <div class="timer-btn">
-        <button class="btn set-btn" id="reset">リセット</button>
         <button class="btn set-btn" id="start">スタート</button>
-        </div>
+        <button class="btn set-btn" id="reset">リセット</button>
+      </div>
     </div>
   </div>
 </body>
