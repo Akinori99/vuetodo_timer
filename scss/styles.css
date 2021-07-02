@@ -36,11 +36,6 @@ body {
     background: #acc7df;
   }
 }
-
-#app {
-  margin: 0 auto;
-}
-
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -82,10 +77,10 @@ header .change-btn {
 .wrapper {
   text-align: center;
   max-width: 1000px;
-  padding: 1%;
+  padding: 2%;
   background: #e1f0f1;
   border-radius: 20px;
-  margin: 90px 1% 10px;
+  margin: 100px auto 10px;
 }
 
 form input {
