@@ -37,10 +37,6 @@ body {
   }
 }
 
-#app {
-  margin: 0 auto;
-}
-
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -85,7 +81,7 @@ header .change-btn {
   padding: 1%;
   background: #e1f0f1;
   border-radius: 20px;
-  margin: 90px 5px 10px;
+  margin: 90px auto 10px;
 }
 
 form input {

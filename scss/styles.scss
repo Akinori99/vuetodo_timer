@@ -27,9 +27,6 @@ body {
     }
   }
 }
-#app {
-  margin: 0 auto;
-}
 header {
   display: flex;
   justify-content: space-between;
@@ -61,7 +58,7 @@ header {
   padding: 1%;
   background: rgb(225, 240, 241);
   border-radius: 20px;
-  margin: 90px 5px 10px;
+  margin: 90px auto 10px;
 }
 
 // ------ToDoリスト用------
