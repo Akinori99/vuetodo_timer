@@ -14,14 +14,14 @@
 </head>
 
 <body>
-  <!-- ------ヘッダー------ -->
-  <header>
-    <div class="left">
-      <img src="https://akinori99.github.io/vuetodo_timer/img/todo.png">
-    </div>
-    <button class="change-btn" @click="doChangeMessage">⇋ {{ message }}</button>
-  </header>
   <div id="app">
+    <!-- ------ヘッダー------ -->
+    <header>
+      <div class="left">
+        <img src="https://akinori99.github.io/vuetodo_timer/img/todo.png">
+      </div>
+      <button class="change-btn" @click="doChangeMessage">⇋ {{ message }}</button>
+    </header>
     <!-- ------ToDoリスト部分------ -->
     <div class="wrapper" v-show="list">
       <h1>ToDoリスト</h1>

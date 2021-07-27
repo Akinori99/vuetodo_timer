@@ -27,9 +27,6 @@ body {
     }
   }
 }
-#app {
-  margin: 0 5px;
-}
 header {
   display: flex;
   justify-content: space-between;
@@ -58,7 +55,7 @@ header {
 .wrapper {
   text-align: center;
   max-width: 1000px;
-  padding: 1%;
+  padding: 2%;
   background: rgb(225, 240, 241);
   border-radius: 20px;
   margin: 90px auto 10px;
