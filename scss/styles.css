@@ -37,6 +37,10 @@ body {
   }
 }
 
+#app {
+  margin: 0 5px;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
