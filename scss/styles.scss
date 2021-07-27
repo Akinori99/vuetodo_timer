@@ -61,12 +61,15 @@ header {
   padding: 1%;
   background: rgb(225, 240, 241);
   border-radius: 20px;
-  margin: 90px 1% 10px;
+  margin: 90px 5px 10px;
 }
 
 // ------ToDoリスト用------
 form input {
-  width: 200px;
+    width: 250px;
+    height: 30px;
+    text-align: center;
+    margin-bottom: 15px;
   &::placeholder {
     opacity: 0.4;
   }
@@ -78,7 +81,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   background: rgba($color: #bbb, $alpha: 0.1);
-  margin: 5px 0 60px;
+  margin: 15px 0 60px;
 }
 thead th {
   border-bottom: 2px solid #0099e4;
@@ -130,7 +133,7 @@ tbody tr {
   font-weight: bold;
 }
 .timer-btn {
-  margin-bottom: 10px;
+  margin: 10px 0;
   .btn:first-child {
     margin-right: 15px;
   }
