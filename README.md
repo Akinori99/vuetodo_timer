@@ -13,4 +13,4 @@ https://akinori99.github.io/vuetodo_timer/
 
 
 ## 作成日(Day of composition)
-2021/07/01  【更新(Update)：2021/07/02】
+2021/07/01  【更新(Update)：2021/07/27】
